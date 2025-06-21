@@ -1,92 +1,50 @@
 <?php
 
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Middleware\GuestMiddleware;
 
+Route::get('/', function () {
+    return Inertia::render('Welcome');
+})->name('home');
 
-/*
-|--------------------------------------------------------------------------
-| This controller handles the homepage and other public-facing pages that don't require authentication
-|--------------------------------------------------------------------------
-*/
+Route::get('/system-kits', function () {
+    return Inertia::render('SystemKits');
+})->name('system-kits');
 
-use App\Http\Controllers\HomeController;
+Route::get('/system-kits/option1', function () {
+    return Inertia::render('SystemKits');
+})->name('system-kits.option1');
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/system-kits/option2', function () {
+    return Inertia::render('SystemKits');
+})->name('system-kits.option2');
 
-/*
-|--------------------------------------------------------------------------
-| This controller handles Login Logic
-|--------------------------------------------------------------------------
-*/
+Route::get('/how-it-works', function () {
+    return Inertia::render('HowItWorks');
+})->name('how-it-works');
 
-use App\Http\Controllers\Auth\LoginController;
+Route::get('/pricing', function () {
+    return Inertia::render('Pricing');
+})->name('pricing');
 
-Route::get('login', [LoginController::class, 'index'])->middleware(GuestMiddleware::class)->name('auth.login');
-Route::post('login', [LoginController::class, 'store'])->name('auth.login.store');
-Route::get('logout', [LoginController::class, 'destroy'])->name('auth.logout');
+Route::get('/blog', function () {
+    return Inertia::render('Blog');
+})->name('blog');
 
-/*
-|--------------------------------------------------------------------------
-| This controller handles Google Auth Logic
-|--------------------------------------------------------------------------
-*/
+Route::get('/about', function () {
+    return Inertia::render('About');
+})->name('about');
 
-use App\Http\Controllers\Auth\SocialAuthController;
+Route::get('/free-audit', function () {
+    return Inertia::render('FreeAudit');
+})->name('free-audit');
 
-Route::get('/auth/google', [SocialAuthController::class, 'redirectToGoogle'])->name('auth.google');
-Route::get('/auth/google/callback', [SocialAuthController::class, 'handleGoogleCallback'])->name('auth.google.callback');
+Route::get('/login', function () {
+    return Inertia::render('Login');
+})->name('login');
 
-/*
-|--------------------------------------------------------------------------
-| This controller handles Register Logic
-|--------------------------------------------------------------------------
-*/
-
-use App\Http\Controllers\Auth\RegisterController;
-
-
-Route::get('register', [RegisterController::class, 'index'])->middleware(GuestMiddleware::class)->name('auth.register');
-
-/*
-|--------------------------------------------------------------------------
-| This controller handles All Admin Logic
-|--------------------------------------------------------------------------
-*/
-
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\SettingsController;
-use App\Http\Middleware\AdminMiddleware;
-
-Route::middleware([AdminMiddleware::class])->group(function () {
-
-  // Dashboard
-  Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-
-  // Settings
-  Route::get('admin/settings', [SettingsController::class, 'index'])->name('admin.settings');
-  Route::put('admin/settings/profile', [SettingsController::class, 'updateProfile'])->name('admin.settings.updateProfile');
-  Route::put('admin/settings/password', [SettingsController::class, 'updatePassword'])->name('admin.settings.updatePassword');
-});
-
-/*
-|--------------------------------------------------------------------------
-| This controller handles All User Logic
-|--------------------------------------------------------------------------
-*/
-
-use App\Http\Controllers\User\UserDashboardController;
-use App\Http\Controllers\User\UserSettingsController;
-use App\Http\Middleware\UserMiddleware;
-
-Route::middleware([UserMiddleware::class])->group(function () {
-
-  // Dashboard
-  Route::get('dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
-
-  // Settings
-  Route::get('user/settings', [UserSettingsController::class, 'index'])->name('user.settings');
-  Route::put('user/settings/profile', [UserSettingsController::class, 'updateProfile'])->name('user.settings.updateProfile');
-  Route::put('user/settings/password', [UserSettingsController::class, 'updatePassword'])->name('user.settings.updatePassword');
-});
+// for dashboard route 
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->name('dashboard');
