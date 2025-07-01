@@ -1,27 +1,43 @@
-import  Hero  from '@/sections/Hero';
-import  SystemKits  from '@/sections/SystemKits';
-import  HowItWorks from '@/sections/HowItWorks';
-import  Pricing  from '@/sections/Pricing';
-import  Blog from '@/sections/Blog';
-import  About from '@/sections/About';
-import  FreeAuditButton from '@/components/ui/button';
-import  Header  from '@/sections/Header';
-import Footer from '@/sections/Footer';
+import { Head } from '@inertiajs/react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import HeroSection from '@/components/landing/HeroSection';
+import HowItWorksSection from '@/components/landing/HowItWorksSection';
+import WhoItsForSection from '@/components/landing/WhoItsForSection';
+import SystemKitsSection from '@/components/landing/SystemKitsSection';
+import ProofSection from '@/components/landing/ProofSection';
+import FinalCTASection from '@/components/landing/FinalCTASection';
 
-export default function Home() {
+export default function Welcome() {
     return (
         <>
-            <Header />
-            <Hero />
-            <SystemKits />
-            <HowItWorks />
-            <Pricing />
-            <Blog />
-            <About />
-            <div className="flex justify-center my-8">
-                <FreeAuditButton>Free Audit</FreeAuditButton>
+            <Head title="GPDS - The Smart, Simple System Builder for Small Giants" />
+            
+            <div className="min-h-screen bg-white">
+                {/* Navigation */}
+                <Navbar currentRoute="/" />
+                
+                {/* Hero Section */}
+                <HeroSection />
+                
+                {/* How It Works Section */}
+                <HowItWorksSection />
+                
+                {/* Who It's For Section */}
+                <WhoItsForSection />
+                
+                {/* System Kits Section */}
+                <SystemKitsSection />
+                
+                {/* Proof/Results Section */}
+                <ProofSection />
+                
+                {/* Final CTA Section */}
+                <FinalCTASection />
+                
+                {/* Footer */}
+                <Footer />
             </div>
-            <Footer />
         </>
     );
 }

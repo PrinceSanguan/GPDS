@@ -1,50 +1,52 @@
 <?php
 
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SystemKitController;
+use App\Http\Controllers\AuditController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome');
-})->name('home');
+// Main landing page
+Route::get('/', [HomeController::class, 'welcome'])->name('home');
 
-Route::get('/system-kits', function () {
-    return Inertia::render('SystemKits');
-})->name('system-kits');
+// Static pages
+Route::get('/how-it-works', [PageController::class, 'howItWorks'])->name('how-it-works');
+Route::get('/pricing', [PageController::class, 'pricing'])->name('pricing');
+Route::get('/blog', [PageController::class, 'blog'])->name('blog');
+Route::get('/about', [PageController::class, 'about'])->name('about');
 
-Route::get('/system-kits/option1', function () {
-    return Inertia::render('SystemKits');
-})->name('system-kits.option1');
+// System Kit Routes
+Route::prefix('kits')->name('kits.')->group(function () {
+    Route::get('/', [SystemKitController::class, 'index'])->name('index');
+    Route::get('/{kit}', [SystemKitController::class, 'show'])->name('show');
+    Route::post('/{kit}/purchase', [SystemKitController::class, 'purchase'])->name('purchase');
+    Route::post('/{kit}/book-setup', [SystemKitController::class, 'bookSetup'])->name('book-setup');
+});
 
-Route::get('/system-kits/option2', function () {
-    return Inertia::render('SystemKits');
-})->name('system-kits.option2');
+// Audit Routes
+Route::prefix('audit')->name('audit.')->group(function () {
+    Route::get('/', [AuditController::class, 'show'])->name('show');
+    Route::post('/', [AuditController::class, 'submit'])->name('submit');
+    Route::get('/results', [AuditController::class, 'results'])->name('results');
+});
 
-Route::get('/how-it-works', function () {
-    return Inertia::render('HowItWorks');
-})->name('how-it-works');
+// Contact Routes
+Route::post('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/contact/success', [HomeController::class, 'contactSuccess'])->name('contact.success');
 
-Route::get('/pricing', function () {
-    return Inertia::render('Pricing');
-})->name('pricing');
+// Authentication Routes
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'store'])->name('login.store');
+    Route::get('/register', [RegisterController::class, 'index'])->name('register');
+    Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+});
 
-Route::get('/blog', function () {
-    return Inertia::render('Blog');
-})->name('blog');
-
-Route::get('/about', function () {
-    return Inertia::render('About');
-})->name('about');
-
-Route::get('/free-audit', function () {
-    return Inertia::render('FreeAudit');
-})->name('free-audit');
-
-Route::get('/login', function () {
-    return Inertia::render('Login');
-})->name('login');
-
-// for dashboard route 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
+    Route::get('/dashboard', function () {
+        return redirect('https://app.gpds.co');
+    })->name('dashboard');
+});

@@ -36,17 +36,13 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // Check user role and redirect accordingly
-            if (Auth::user()->user_role === 'admin') {
-                return redirect()->route('admin.dashboard');
-            } else {
-                return redirect()->route('user.dashboard');
-            }
+            // Redirect to external app domain
+            return redirect('https://app.gpds.co');
         }
 
         // Authentication failed
         throw ValidationException::withMessages([
-            'auth' => 'The provided credentials do not match our records.',
+            'email' => 'The provided credentials do not match our records.',
         ]);
     }
 
