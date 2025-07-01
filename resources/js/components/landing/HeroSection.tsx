@@ -13,11 +13,6 @@ export default function HeroSection() {
         <section className="relative bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-16 sm:py-20">
             <div className="mx-auto max-w-6xl px-6 lg:px-8">
                 <div className="text-center">
-                    {/* Badge */}
-                    <div className="mb-6 inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-6 py-3 text-sm font-medium text-blue-700">
-                        Strategic System Builder for Growing Businesses
-                    </div>
-                    
                     {/* Main Headline */}
                     <h1 className="mb-6 text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
                         The Smart, Simple{' '}
