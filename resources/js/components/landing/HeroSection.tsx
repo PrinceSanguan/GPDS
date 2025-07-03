@@ -26,7 +26,7 @@ export default function HeroSection() {
                     <p className="mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-gray-600 sm:text-2xl">
                         Stop juggling 15 different tools. Get a custom business system that actually works together.
                         <span className="block mt-4 font-semibold text-gray-900">
-                            We're not GHL. We're smarter. Simpler. Saner.
+                        Not like GHL, we're smarter and simpler.
                         </span>
                     </p>
                     

@@ -7,6 +7,7 @@ use App\Http\Controllers\AuditController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DashboardController;
 
 // Main landing page
 Route::get('/', [HomeController::class, 'welcome'])->name('home');
@@ -46,7 +47,37 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
-    Route::get('/dashboard', function () {
-        return redirect('https://app.gpds.co');
-    })->name('dashboard');
+    
+    // Dashboard Routes
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/kits/{kit}', [DashboardController::class, 'kitHub'])->name('dashboard.kit-hub');
+    
+    // Placeholder routes for dashboard sections
+    Route::get('/dashboard/kits', function () {
+        return redirect()->route('dashboard');
+    })->name('dashboard.kits');
+    
+    Route::get('/dashboard/performance', function () {
+        return redirect()->route('dashboard');
+    })->name('dashboard.performance');
+    
+    Route::get('/dashboard/automations', function () {
+        return redirect()->route('dashboard');
+    })->name('dashboard.automations');
+    
+    Route::get('/dashboard/leads', function () {
+        return redirect()->route('dashboard');
+    })->name('dashboard.leads');
+    
+    Route::get('/dashboard/bookings', function () {
+        return redirect()->route('dashboard');
+    })->name('dashboard.bookings');
+    
+    Route::get('/dashboard/settings', function () {
+        return redirect()->route('dashboard');
+    })->name('dashboard.settings');
+    
+    Route::get('/dashboard/support', function () {
+        return redirect()->route('dashboard');
+    })->name('dashboard.support');
 });
