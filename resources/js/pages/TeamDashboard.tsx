@@ -64,8 +64,8 @@ export default function TeamDashboard({ user, clients, setupTasks }: TeamDashboa
             <div className="space-y-6">
                 {/* Team Header */}
                 <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl p-6 text-white">
-                    <h1 className="text-2xl font-bold mb-2">
-                        Team Dashboard - {user.role === 'admin' ? 'Admin' : 'VA'} View
+                    <h1 className="text-3xl font-bold text-[#004aad] mb-2">
+                        Team Dashboard
                     </h1>
                     <p className="text-purple-100">
                         Manage client setups, assist with implementations, and track progress.
@@ -101,19 +101,19 @@ export default function TeamDashboard({ user, clients, setupTasks }: TeamDashboa
                 {/* Navigation Tabs */}
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200">
                     <div className="border-b border-gray-200">
-                        <nav className="flex space-x-8 px-6">
-                            {tabs.map((tab) => (
+                        <nav className="flex space-x-2 mb-6">
+                            {tabs.map(tab => (
                                 <button
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
-                                    className={`flex items-center space-x-2 py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
+                                    className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                                         activeTab === tab.id
-                                            ? 'border-blue-500 text-blue-600'
-                                            : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                                            ? 'bg-[#004aad] text-white'
+                                            : 'bg-[#c7af6e]/20 text-[#004aad] hover:bg-[#c7af6e]/40'
                                     }`}
                                 >
-                                    <span>{tab.icon}</span>
-                                    <span>{tab.name}</span>
+                                    <span className="mr-2">{tab.icon}</span>
+                                    {tab.name}
                                 </button>
                             ))}
                         </nav>

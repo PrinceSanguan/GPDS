@@ -48,20 +48,20 @@ export default function Navbar({ currentRoute = '' }: NavbarProps) {
     };
 
     return (
-        <nav className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+        <nav className="bg-white/10 shadow-sm border-b border-[#c7af6e]/40 backdrop-blur sticky top-0 z-50">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     {/* Left: Brand */}
                     <div className="flex items-center">
                         <Link href="/" className="flex items-center space-x-3">
-                            <div className="w-12 h-12 rounded-full bg-blue-100 overflow-hidden">
+                            <div className="w-12 h-12 rounded-full bg-[#c7af6e]/20 overflow-hidden">
                                 <img 
                                     src="/Images/GPDS Logo.png" 
                                     alt="GPDS Logo" 
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <span className="text-2xl font-bold text-gray-900">GPDS</span>
+                            <span className="text-2xl font-bold text-white drop-shadow">GPDS</span>
                         </Link>
                     </div>
 
@@ -70,9 +70,9 @@ export default function Navbar({ currentRoute = '' }: NavbarProps) {
                         {/* Home */}
                         <Link 
                             href="/" 
-                            className={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${
-                                currentRoute === '/' ? 'text-blue-600 border-b-2 border-blue-600' : ''
-                            }`}
+                            className={`text-white hover:text-[#c7af6e] px-3 py-2 text-sm font-medium transition-colors ${
+                                currentRoute === '/' ? 'text-[#c7af6e] border-b-2 border-[#c7af6e]' : ''
+                            } drop-shadow`}
                         >
                             Home
                         </Link>
@@ -82,9 +82,9 @@ export default function Navbar({ currentRoute = '' }: NavbarProps) {
                             <button
                                 onMouseEnter={handleDropdownEnter}
                                 onMouseLeave={handleDropdownLeave}
-                                className={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${
-                                    currentRoute.startsWith('/kits') ? 'text-blue-600' : ''
-                                }`}
+                                className={`text-white hover:text-[#c7af6e] px-3 py-2 text-sm font-medium transition-colors ${
+                                    currentRoute.startsWith('/kits') ? 'text-[#c7af6e]' : ''
+                                } drop-shadow`}
                             >
                                 System Kits
                             </button>
@@ -92,26 +92,26 @@ export default function Navbar({ currentRoute = '' }: NavbarProps) {
                             {/* Dropdown Menu */}
                             {isSystemKitsOpen && (
                                 <div 
-                                    className="absolute top-full left-0 mt-1 w-80 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50"
+                                    className="absolute top-full left-0 mt-1 w-80 bg-white/10 rounded-lg shadow-lg border border-[#c7af6e]/40 py-2 z-50 backdrop-blur"
                                     onMouseEnter={handleDropdownEnter}
                                     onMouseLeave={handleDropdownLeave}
                                 >
                                     <Link
                                         href="/kits"
-                                        className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 border-b border-gray-100"
+                                        className="block px-4 py-3 text-sm text-white hover:bg-[#c7af6e]/20 border-b border-[#c7af6e]/20"
                                     >
                                         <div className="font-semibold">View All System Kits</div>
-                                        <div className="text-xs text-gray-500 mt-1">Browse all available systems</div>
+                                        <div className="text-xs text-[#c7af6e] mt-1">Browse all available systems</div>
                                     </Link>
                                     
                                     {systemKits.map((kit, index) => (
                                         <Link
                                             key={index}
                                             href={kit.href}
-                                            className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50"
+                                            className="block px-4 py-3 text-sm text-white hover:bg-[#c7af6e]/20"
                                         >
                                             <div className="font-semibold">{kit.name}</div>
-                                            <div className="text-xs text-gray-500 mt-1">{kit.subtitle}</div>
+                                            <div className="text-xs text-[#c7af6e] mt-1">{kit.subtitle}</div>
                                         </Link>
                                     ))}
                                 </div>
@@ -123,9 +123,9 @@ export default function Navbar({ currentRoute = '' }: NavbarProps) {
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                className={`text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors ${
-                                    currentRoute === item.href ? 'text-blue-600 border-b-2 border-blue-600' : ''
-                                }`}
+                                className={`text-white hover:text-[#c7af6e] px-3 py-2 text-sm font-medium transition-colors ${
+                                    currentRoute === item.href ? 'text-[#c7af6e] border-b-2 border-[#c7af6e]' : ''
+                                } drop-shadow`}
                             >
                                 {item.name}
                             </Link>
@@ -134,7 +134,7 @@ export default function Navbar({ currentRoute = '' }: NavbarProps) {
                         {/* CTA Button */}
                         <button
                             onClick={handleAuditClick}
-                            className="bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors shadow-sm ml-4"
+                            className="bg-[#c7af6e] text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-white hover:text-[#c7af6e] transition-colors shadow-sm ml-4 drop-shadow"
                         >
                             Start My Free Audit
                         </button>
@@ -142,7 +142,7 @@ export default function Navbar({ currentRoute = '' }: NavbarProps) {
                         {/* Login Button */}
                         <button
                             onClick={handleLoginClick}
-                            className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors flex items-center"
+                            className="text-white hover:text-[#c7af6e] px-3 py-2 text-sm font-medium transition-colors flex items-center drop-shadow"
                         >
                             Login
                         </button>
@@ -152,7 +152,7 @@ export default function Navbar({ currentRoute = '' }: NavbarProps) {
                     <div className="flex items-center lg:hidden">
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium"
+                            className="text-white hover:text-[#c7af6e] px-3 py-2 text-sm font-medium"
                         >
                             {isMobileMenuOpen ? 'Close' : 'Menu'}
                         </button>
@@ -161,24 +161,20 @@ export default function Navbar({ currentRoute = '' }: NavbarProps) {
 
                 {/* Mobile menu */}
                 {isMobileMenuOpen && (
-                    <div className="lg:hidden border-t border-gray-200 py-4">
+                    <div className="lg:hidden border-t border-[#c7af6e]/40 py-4 bg-white/10 backdrop-blur">
                         <div className="space-y-2">
-                            <Link href="/" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600">
-                                Home
-                            </Link>
+                            <Link href="/" className="block px-3 py-2 text-base font-medium text-white hover:text-[#c7af6e]">Home</Link>
                             
                             {/* Mobile System Kits */}
                             <div>
-                                <div className="px-3 py-2 text-base font-medium text-gray-900">System Kits</div>
+                                <div className="px-3 py-2 text-base font-medium text-white">System Kits</div>
                                 <div className="pl-6 space-y-1">
-                                    <Link href="/kits" className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600">
-                                        View All Kits
-                                    </Link>
+                                    <Link href="/kits" className="block px-3 py-2 text-sm text-[#c7af6e] hover:text-white">View All Kits</Link>
                                     {systemKits.map((kit, index) => (
                                         <Link
                                             key={index}
                                             href={kit.href}
-                                            className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600"
+                                            className="block px-3 py-2 text-sm text-[#c7af6e] hover:text-white"
                                         >
                                             {kit.name}
                                         </Link>
@@ -190,7 +186,7 @@ export default function Navbar({ currentRoute = '' }: NavbarProps) {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600"
+                                    className="block px-3 py-2 text-base font-medium text-white hover:text-[#c7af6e]"
                                 >
                                     {item.name}
                                 </Link>
@@ -200,13 +196,13 @@ export default function Navbar({ currentRoute = '' }: NavbarProps) {
                             <div className="pt-4 space-y-2">
                                 <button
                                     onClick={handleAuditClick}
-                                    className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors"
+                                    className="w-full bg-[#c7af6e] text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-white hover:text-[#c7af6e] transition-colors drop-shadow"
                                 >
                                     Start My Free Audit
                                 </button>
                                 <button
                                     onClick={handleLoginClick}
-                                    className="w-full text-gray-700 border border-gray-300 px-6 py-3 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors"
+                                    className="w-full text-white border border-[#c7af6e] px-6 py-3 rounded-lg text-sm font-medium hover:bg-[#c7af6e] hover:text-white transition-colors drop-shadow"
                                 >
                                     Login
                                 </button>

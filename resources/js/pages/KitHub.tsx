@@ -56,7 +56,7 @@ export default function KitHub({ user, kit }: KitHubProps) {
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-4">
-                            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl">
+                            <div className="w-12 h-12 bg-[#c7af6e] rounded-lg flex items-center justify-center text-2xl">
                                 {categoryIcons[kit.category as keyof typeof categoryIcons] || '📦'}
                             </div>
                             <div>

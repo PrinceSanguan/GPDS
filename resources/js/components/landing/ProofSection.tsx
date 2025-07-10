@@ -34,17 +34,17 @@ export default function ProofSection() {
     ];
 
     return (
-        <section className="py-32 bg-gray-50">
+        <section className="py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="mx-auto max-w-3xl text-center mb-20">
-                    <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
+                    <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6 drop-shadow-lg">
                         Proof & Results
                     </h2>
-                    <p className="text-xl leading-8 text-gray-600 mb-4">
+                    <p className="text-xl leading-8 text-[#c7af6e] mb-4 drop-shadow">
                         Real wins from real businesses using GPDS systems
                     </p>
-                    <p className="text-lg text-gray-500">
+                    <p className="text-lg text-white/80 drop-shadow">
                         Don't just take our word for it. See what happens when simple systems meet smart execution.
                     </p>
                 </div>
@@ -53,132 +53,26 @@ export default function ProofSection() {
                 <div className="mx-auto mb-20 max-w-4xl">
                     <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
                         {stats.map((stat, index) => (
-                            <div key={index} className="bg-white rounded-xl p-8 text-center shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-                                <div className="text-4xl font-bold text-blue-600 mb-2">{stat.number}</div>
-                                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+                            <div key={index} className="bg-white/10 rounded-xl p-8 text-center shadow-lg border-2 border-[#c7af6e] hover:shadow-xl transition-shadow">
+                                <div className="text-4xl font-bold text-white mb-2 drop-shadow">{stat.number}</div>
+                                <div className="text-sm text-[#c7af6e] font-medium drop-shadow">{stat.label}</div>
                             </div>
                         ))}
                     </div>
                 </div>
                 
-                {/* Testimonials */}
-                <div className="mx-auto mb-20 max-w-6xl">
-                    <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-                        {testimonials.map((testimonial, index) => (
-                            <div key={index} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300">
-                                {/* Quote Badge */}
-                                <div className="mb-6">
-                                    <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-4">
-                                        <span className="font-bold text-blue-600 text-sm">"{testimonial.quote}"</span>
-                                    </div>
-                                </div>
-                                
-                                {/* Details */}
-                                <p className="text-gray-600 mb-8 leading-relaxed italic">
-                                    "{testimonial.details}"
-                                </p>
-                                
-                                {/* Author & Metrics */}
-                                <div className="flex items-end justify-between">
-                                    <div>
-                                        <div className="font-semibold text-gray-900">{testimonial.author}</div>
-                                        <div className="text-sm text-gray-500">{testimonial.role}</div>
-                                    </div>
-                                    <div className="text-right">
-                                        <div className="font-bold text-blue-600">{testimonial.metric}</div>
-                                        <div className="text-xs text-gray-500">{testimonial.timeframe}</div>
-                                    </div>
-                                </div>
+                {/* Testimonials Grid */}
+                <div className="mx-auto max-w-4xl">
+                    <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+                        {testimonials.map((t, idx) => (
+                            <div key={idx} className="bg-white/10 rounded-xl p-8 shadow-lg border-2 border-[#c7af6e]">
+                                <blockquote className="text-[#c7af6e] italic mb-4 drop-shadow">"{t.quote}"</blockquote>
+                                <p className="text-white/90 mb-2 drop-shadow">{t.details}</p>
+                                <div className="text-sm text-white font-semibold drop-shadow">{t.author}</div>
+                                <div className="text-xs text-[#c7af6e] drop-shadow">{t.role}</div>
+                                <div className="text-xs text-white/80 mt-2 drop-shadow">{t.metric} <span className="text-[#c7af6e]">{t.timeframe}</span></div>
                             </div>
                         ))}
-                    </div>
-                </div>
-                
-                {/* Before/After Comparison */}
-                <div className="mx-auto max-w-5xl">
-                    <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
-                        From Chaos to Growth: The GPDS Transformation
-                    </h3>
-                    <div className="bg-white rounded-2xl p-12 shadow-lg border border-gray-200">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                            {/* Before */}
-                            <div className="text-center">
-                                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <span className="text-2xl font-bold text-red-600">×</span>
-                                </div>
-                                <h4 className="font-bold text-gray-900 mb-4 text-lg">Before GPDS</h4>
-                                <ul className="text-gray-600 space-y-3">
-                                    <li className="flex items-start space-x-2">
-                                        <span className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0"></span>
-                                        <span>15+ different tools to manage</span>
-                                    </li>
-                                    <li className="flex items-start space-x-2">
-                                        <span className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0"></span>
-                                        <span>Manual processes everywhere</span>
-                                    </li>
-                                    <li className="flex items-start space-x-2">
-                                        <span className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0"></span>
-                                        <span>Inconsistent follow-up</span>
-                                    </li>
-                                    <li className="flex items-start space-x-2">
-                                        <span className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0"></span>
-                                        <span>Stressed & overwhelmed</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            
-                            {/* Process */}
-                            <div className="text-center">
-                                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <span className="text-2xl font-bold text-blue-600">→</span>
-                                </div>
-                                <h4 className="font-bold text-gray-900 mb-4 text-lg">24-Hour Setup</h4>
-                                <ul className="text-gray-600 space-y-3">
-                                    <li className="flex items-start space-x-2">
-                                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                                        <span>Custom system deployment</span>
-                                    </li>
-                                    <li className="flex items-start space-x-2">
-                                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                                        <span>Brand integration</span>
-                                    </li>
-                                    <li className="flex items-start space-x-2">
-                                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                                        <span>Training & support</span>
-                                    </li>
-                                    <li className="flex items-start space-x-2">
-                                        <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                                        <span>System optimization</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            
-                            {/* After */}
-                            <div className="text-center">
-                                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <span className="text-2xl font-bold text-green-600">✓</span>
-                                </div>
-                                <h4 className="font-bold text-gray-900 mb-4 text-lg">After GPDS</h4>
-                                <ul className="text-gray-600 space-y-3">
-                                    <li className="flex items-start space-x-2">
-                                        <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
-                                        <span>1 integrated system</span>
-                                    </li>
-                                    <li className="flex items-start space-x-2">
-                                        <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
-                                        <span>94% automation rate</span>
-                                    </li>
-                                    <li className="flex items-start space-x-2">
-                                        <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
-                                        <span>Consistent growth</span>
-                                    </li>
-                                    <li className="flex items-start space-x-2">
-                                        <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
-                                        <span>Peace of mind</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

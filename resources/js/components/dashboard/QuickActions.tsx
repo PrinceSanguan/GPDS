@@ -6,28 +6,28 @@ export default function QuickActions() {
             name: 'Add New Kit',
             description: 'Browse and add a new system to your dashboard',
             icon: '➕',
-            color: 'bg-blue-600',
+            color: 'bg-[#c7af6e]',
             href: '/kits',
         },
         {
             name: 'View All Leads',
             description: 'Check your latest leads and conversions',
             icon: '👥',
-            color: 'bg-green-600',
+            color: 'bg-[#c7af6e]',
             href: '/dashboard/leads',
         },
         {
             name: 'Performance Report',
             description: 'See how your systems are performing',
             icon: '📊',
-            color: 'bg-purple-600',
+            color: 'bg-[#c7af6e]',
             href: '/dashboard/performance',
         },
         {
             name: 'Book Support',
             description: 'Get help from our expert team',
             icon: '💬',
-            color: 'bg-orange-600',
+            color: 'bg-[#c7af6e]',
             href: '/dashboard/support',
         },
     ];
@@ -37,8 +37,8 @@ export default function QuickActions() {
     };
 
     return (
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="bg-white/20 backdrop-blur-xl rounded-xl shadow-lg border border-[#c7af6e] p-6">
+            <h3 className="text-lg font-semibold text-white mb-4 drop-shadow-lg">
                 Quick Actions
             </h3>
             
@@ -47,18 +47,18 @@ export default function QuickActions() {
                     <button
                         key={action.name}
                         onClick={() => handleActionClick(action.href)}
-                        className="text-left p-4 rounded-lg border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all duration-200 group"
+                        className="text-left p-4 rounded-lg border border-[#c7af6e]/30 hover:border-[#c7af6e] hover:shadow-lg transition-all duration-200 group bg-white/10 backdrop-blur-md"
                     >
                         <div className="flex items-center mb-3">
-                            <div className={`w-10 h-10 rounded-lg ${action.color} flex items-center justify-center text-white text-lg`}>
+                            <div className={`w-10 h-10 rounded-lg ${action.color} flex items-center justify-center text-[#004aad] text-lg shadow-md`}>
                                 {action.icon}
                             </div>
                         </div>
                         
-                        <h4 className="font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                        <h4 className="font-semibold text-white mb-1 group-hover:text-[#c7af6e] drop-shadow-lg transition-colors">
                             {action.name}
                         </h4>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-[#c7af6e] drop-shadow-lg">
                             {action.description}
                         </p>
                     </button>

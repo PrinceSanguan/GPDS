@@ -15,8 +15,8 @@ export default function StatsOverview({ stats }: StatsOverviewProps) {
             name: 'Total Leads Generated',
             value: stats.totalLeads.toLocaleString(),
             icon: '👥',
-            color: 'text-green-600',
-            bgColor: 'bg-green-50',
+            color: 'text-[#c7af6e]',
+            bgColor: 'bg-[#c7af6e]/20',
             change: '+12%',
             changeType: 'positive' as ChangeType,
         },
@@ -24,8 +24,8 @@ export default function StatsOverview({ stats }: StatsOverviewProps) {
             name: 'Bookings This Month',
             value: stats.totalBookings.toLocaleString(),
             icon: '📅',
-            color: 'text-blue-600',
-            bgColor: 'bg-blue-50',
+            color: 'text-[#c7af6e]',
+            bgColor: 'bg-[#c7af6e]/20',
             change: '+8%',
             changeType: 'positive' as ChangeType,
         },
@@ -33,8 +33,8 @@ export default function StatsOverview({ stats }: StatsOverviewProps) {
             name: 'Active Automations',
             value: stats.totalAutomations.toLocaleString(),
             icon: '⚙️',
-            color: 'text-purple-600',
-            bgColor: 'bg-purple-50',
+            color: 'text-[#c7af6e]',
+            bgColor: 'bg-[#c7af6e]/20',
             change: '+3',
             changeType: 'positive' as ChangeType,
         },
@@ -42,8 +42,8 @@ export default function StatsOverview({ stats }: StatsOverviewProps) {
             name: 'System Kits Running',
             value: stats.activeKits.toString(),
             icon: '🧩',
-            color: 'text-orange-600',
-            bgColor: 'bg-orange-50',
+            color: 'text-[#c7af6e]',
+            bgColor: 'bg-[#c7af6e]/20',
             change: 'Stable',
             changeType: 'neutral' as ChangeType,
         },
@@ -52,17 +52,17 @@ export default function StatsOverview({ stats }: StatsOverviewProps) {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {statItems.map((item) => (
-                <div key={item.name} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <div key={item.name} className="bg-white/20 backdrop-blur-xl rounded-xl shadow-lg border border-[#c7af6e] p-6">
                     <div className="flex items-center justify-between">
-                        <div className={`w-12 h-12 rounded-lg ${item.bgColor} flex items-center justify-center`}>
-                            <span className="text-2xl">{item.icon}</span>
+                        <div className={`w-12 h-12 rounded-lg ${item.bgColor} flex items-center justify-center shadow-md`}>
+                            <span className="text-2xl text-[#004aad]">{item.icon}</span>
                         </div>
-                        <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+                        <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium drop-shadow-lg ${
                             item.changeType === 'positive' 
-                                ? 'text-green-700 bg-green-100' 
+                                ? 'text-[#004aad] bg-[#c7af6e]/30' 
                                 : item.changeType === 'negative'
-                                ? 'text-red-700 bg-red-100'
-                                : 'text-gray-700 bg-gray-100'
+                                ? 'text-red-700 bg-[#c7af6e]/30'
+                                : 'text-[#c7af6e] bg-white/10'
                         }`}>
                             {item.changeType === 'positive' && (
                                 <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
@@ -79,10 +79,10 @@ export default function StatsOverview({ stats }: StatsOverviewProps) {
                     </div>
                     
                     <div className="mt-4">
-                        <div className={`text-3xl font-bold ${item.color} mb-1`}>
+                        <div className={`text-3xl font-bold ${item.color} mb-1 drop-shadow-lg`}>
                             {item.value}
                         </div>
-                        <div className="text-sm text-gray-600">
+                        <div className="text-sm text-[#c7af6e] drop-shadow-lg">
                             {item.name}
                         </div>
                     </div>

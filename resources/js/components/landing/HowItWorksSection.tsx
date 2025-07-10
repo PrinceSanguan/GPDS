@@ -46,85 +46,62 @@ export default function HowItWorksSection() {
     };
 
     return (
-        <section className="py-32 bg-gray-50">
+        <section className="py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="mx-auto max-w-3xl text-center mb-20">
-                    <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
+                    <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6 drop-shadow-lg">
                         How It Works
                     </h2>
-                    <p className="text-xl leading-8 text-gray-600 mb-4">
+                    <p className="text-xl leading-8 text-[#c7af6e] mb-4 drop-shadow">
                         We're not like other platforms. We're smarter, simpler, and actually work.
                     </p>
-                    <p className="text-lg text-gray-500">
+                    <p className="text-lg text-white/80 drop-shadow">
                         Three simple steps to transform your business operations
                     </p>
                 </div>
                 
                 {/* Steps */}
-                <div className="grid grid-cols-1 gap-16 lg:grid-cols-3 mb-20">
-                    {steps.map((step, index) => (
-                        <div key={index} className="relative">
-                            {/* Connection Line (Desktop only) */}
-                            {index < steps.length - 1 && (
-                                <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-blue-200 to-transparent transform translate-x-8 z-0"></div>
-                            )}
-                            
-                            {/* Step Content */}
-                            <div className="relative z-10 bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-                                {/* Step Number */}
-                                <div className="flex items-center justify-center w-16 h-16 mx-auto mb-6 bg-blue-600 rounded-full">
-                                    <span className="text-2xl font-bold text-white">{step.number}</span>
+                <div className="mx-auto max-w-4xl">
+                    {steps.map((step, idx) => (
+                        <div key={step.number} className="mb-20">
+                            <div className="flex items-start space-x-8">
+                                <div className="flex-shrink-0">
+                                    <div className="flex items-center justify-center w-16 h-16 bg-[#c7af6e] rounded-full shadow-lg">
+                                        <span className="text-2xl font-bold text-white">{step.number}</span>
+                                    </div>
                                 </div>
-                                
-                                {/* Step Title */}
-                                <h3 className="text-2xl font-bold text-gray-900 text-center mb-4">
-                                    {step.title}
-                                </h3>
-                                
-                                {/* Step Description */}
-                                <p className="text-gray-600 text-center mb-6 leading-relaxed">
-                                    {step.description}
-                                </p>
-                                
-                                {/* Step Details */}
-                                <div className="space-y-3">
-                                    {step.details.map((detail, detailIndex) => (
-                                        <div key={detailIndex} className="flex items-start space-x-3">
-                                            <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                                            <span className="text-sm text-gray-600 leading-relaxed">{detail}</span>
-                                        </div>
-                                    ))}
+                                <div className="flex-1">
+                                    <h3 className="text-2xl font-bold text-white mb-4 drop-shadow">{step.title}</h3>
+                                    <p className="text-lg text-white/90 mb-6 drop-shadow">{step.description}</p>
+                                    <ul className="space-y-2 text-white/80">
+                                        {step.details.map((detail, i) => (
+                                            <li key={i} className="flex items-start">
+                                                <span className="w-2 h-2 bg-[#c7af6e] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                                {detail}
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
 
-                {/* Bottom CTA */}
-                <div className="text-center">
-                    <div className="bg-white rounded-2xl p-12 shadow-lg border border-gray-200 max-w-4xl mx-auto">
-                        <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                            Ready to See Your System in Action?
-                        </h3>
-                        <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                            Start with a free audit to see exactly how we'd build your perfect business system.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button
-                                onClick={handleGetStarted}
-                                className="bg-blue-600 text-white px-8 py-4 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors shadow-lg"
-                            >
-                                Start My Free Audit
-                            </button>
-                            <button
-                                onClick={handleViewDemo}
-                                className="bg-white border border-gray-300 text-gray-700 px-8 py-4 rounded-lg text-sm font-semibold hover:bg-gray-50 transition-colors"
-                            >
-                                See How It Works
-                            </button>
-                        </div>
-                    </div>
+                {/* CTA Buttons */}
+                <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                    <button
+                        onClick={handleGetStarted}
+                        className="bg-[#c7af6e] hover:bg-white text-white hover:text-[#c7af6e] px-8 py-4 text-lg font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+                    >
+                        Start My Free Audit
+                    </button>
+                    <button
+                        onClick={handleViewDemo}
+                        className="bg-white/10 hover:bg-[#c7af6e] text-white hover:text-white px-8 py-4 text-lg font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 border-2 border-[#c7af6e]"
+                    >
+                        See How It Works
+                    </button>
                 </div>
             </div>
         </section>

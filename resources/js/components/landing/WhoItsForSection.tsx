@@ -19,14 +19,14 @@ export default function WhoItsForSection() {
     ];
 
     return (
-        <section className="py-32 bg-white">
+        <section className="py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="mx-auto max-w-3xl text-center mb-20">
-                    <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-6">
+                    <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6 drop-shadow-lg">
                         Who It's For
                     </h2>
-                    <p className="text-xl leading-8 text-gray-600">
+                    <p className="text-xl leading-8 text-[#c7af6e] drop-shadow">
                         Built for smart people who value their time and sanity
                     </p>
                 </div>
@@ -35,9 +35,9 @@ export default function WhoItsForSection() {
                 <div className="mx-auto max-w-5xl">
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                         {targetAudience.map((item, index) => (
-                            <div key={index} className="relative bg-gray-50 p-8 rounded-xl">
-                                <h3 className="text-xl font-semibold text-gray-900 mb-4">{item.title}</h3>
-                                <p className="text-lg text-gray-600">{item.description}</p>
+                            <div key={index} className="relative bg-white/10 p-8 rounded-xl border border-[#c7af6e]/60 shadow-lg">
+                                <h3 className="text-xl font-semibold text-white mb-4 drop-shadow">{item.title}</h3>
+                                <p className="text-lg text-[#c7af6e] drop-shadow">{item.description}</p>
                             </div>
                         ))}
                     </div>

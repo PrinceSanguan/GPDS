@@ -10,22 +10,22 @@ export default function HeroSection() {
     };
 
     return (
-        <section className="relative bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-16 sm:py-20">
+        <section className="relative py-16 sm:py-20">
             <div className="mx-auto max-w-6xl px-6 lg:px-8">
                 <div className="text-center">
                     {/* Main Headline */}
-                    <h1 className="mb-6 text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
+                    <h1 className="mb-6 text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl drop-shadow-lg">
                         The Smart, Simple{' '}
-                        <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                        <span className="bg-gradient-to-r from-[#c7af6e] to-white bg-clip-text text-transparent">
                             System Builder
                         </span>{' '}
                         for Small Giants
                     </h1>
                     
                     {/* Subtitle */}
-                    <p className="mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-gray-600 sm:text-2xl">
+                    <p className="mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-[#c7af6e] sm:text-2xl drop-shadow">
                         Stop juggling 15 different tools. Get a custom business system that actually works together.
-                        <span className="block mt-4 font-semibold text-gray-900">
+                        <span className="block mt-4 font-semibold text-white drop-shadow">
                         Not like GHL, we're smarter and simpler.
                         </span>
                     </p>
@@ -34,28 +34,28 @@ export default function HeroSection() {
                     <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
                         <button
                             onClick={handleAuditClick}
-                            className="w-full sm:w-auto bg-blue-600 text-white px-10 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+                            className="w-full sm:w-auto bg-[#c7af6e] text-white px-10 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-[#c7af6e] transition-all duration-200 shadow-lg hover:shadow-xl"
                         >
                             Get My Free System Audit
                         </button>
                         <button
                             onClick={handleKitsClick}
-                            className="w-full sm:w-auto bg-white text-gray-900 border-2 border-gray-200 px-10 py-4 rounded-xl text-lg font-semibold hover:border-gray-300 hover:bg-gray-50 transition-all duration-200"
+                            className="w-full sm:w-auto bg-white/10 text-white border-2 border-[#c7af6e] px-10 py-4 rounded-xl text-lg font-semibold hover:bg-[#c7af6e] hover:text-white transition-all duration-200"
                         >
                             Browse System Kits
                         </button>
                     </div>
                     
                     {/* Social Proof */}
-                    <div className="border-t border-gray-200 pt-8">
-                        <p className="text-sm text-gray-500 mb-6">
+                    <div className="border-t border-[#c7af6e]/40 pt-8">
+                        <p className="text-sm text-[#c7af6e] mb-6 drop-shadow">
                             Trusted by 500+ growing businesses
                         </p>
-                        <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-                            <div className="h-8 w-24 bg-gray-200 rounded"></div>
-                            <div className="h-8 w-24 bg-gray-200 rounded"></div>
-                            <div className="h-8 w-24 bg-gray-200 rounded"></div>
-                            <div className="h-8 w-24 bg-gray-200 rounded"></div>
+                        <div className="flex flex-wrap justify-center items-center gap-8 opacity-80">
+                            <div className="h-8 w-24 bg-white/20 rounded"></div>
+                            <div className="h-8 w-24 bg-white/20 rounded"></div>
+                            <div className="h-8 w-24 bg-white/20 rounded"></div>
+                            <div className="h-8 w-24 bg-white/20 rounded"></div>
                         </div>
                     </div>
                 </div>
