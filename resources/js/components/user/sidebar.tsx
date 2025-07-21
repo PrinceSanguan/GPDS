@@ -1,5 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
+import Button from '@/components/ui/button';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -38,7 +38,7 @@ export function Sidebar({ user }: SidebarProps) {
                 <nav className="grid items-start gap-1 px-2 text-sm font-medium">
                     <Link href={route('user.dashboard')} className="w-full">
                         <Button
-                            variant={isActive('/dashboard') ? 'secondary' : 'ghost'}
+                            variant={isActive('/dashboard') ? 'outline' : 'default'}
                             className="flex w-full items-center justify-start gap-3 rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
                         >
                             <LayoutDashboard size={18} />
@@ -48,7 +48,7 @@ export function Sidebar({ user }: SidebarProps) {
 
                     {/* New navigation items */}
                     <Button
-                        variant="ghost"
+                        variant="outline"
                         className="flex w-full items-center justify-start gap-3 rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
                     >
                         <Users size={18} />
@@ -56,7 +56,7 @@ export function Sidebar({ user }: SidebarProps) {
                     </Button>
 
                     <Button
-                        variant="ghost"
+                        variant="outline"
                         className="flex w-full items-center justify-start gap-3 rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
                     >
                         <BarChart size={18} />
@@ -64,7 +64,7 @@ export function Sidebar({ user }: SidebarProps) {
                     </Button>
 
                     <Button
-                        variant="ghost"
+                        variant="outline"
                         className="flex w-full items-center justify-start gap-3 rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
                     >
                         <CreditCard size={18} />
@@ -72,7 +72,7 @@ export function Sidebar({ user }: SidebarProps) {
                     </Button>
 
                     <Button
-                        variant="ghost"
+                        variant="outline"
                         className="flex w-full items-center justify-start gap-3 rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
                     >
                         <Share size={18} />
@@ -80,7 +80,7 @@ export function Sidebar({ user }: SidebarProps) {
                     </Button>
 
                     <Button
-                        variant="ghost"
+                        variant="outline"
                         className="flex w-full items-center justify-start gap-3 rounded-md px-3 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
                     >
                         <MessageSquare size={18} />
@@ -102,7 +102,7 @@ export function Sidebar({ user }: SidebarProps) {
                     </div>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="icon" className="ml-auto h-8 w-8">
+                            <Button variant="outline" className="ml-auto h-8 w-8">
                                 <ChevronDown size={16} />
                             </Button>
                         </DropdownMenuTrigger>
